@@ -1,5 +1,5 @@
-from textnode import TextNode, TextType
-from utils import split_nodes_delimiter
+from src.textnode import TextNode, TextType
+from src.utils import split_nodes_delimiter
 
 def main():
     node = TextNode("This is text with a `code block` word", TextType.TEXT)
