@@ -1,4 +1,4 @@
-
+from src.block_utils import check_header, check_ordered_list, check_quote, check_unordered_list
 
 def markdown_to_blocks(markdown):
     blocks = []
@@ -37,36 +37,7 @@ def block_to_block_type(block):
     
     return "paragraph"
 
-
-def check_unordered_list(symbol, block):
-    for b in block.split("\n"):
-        if b and not b.startswith(symbol):
-            return -1
-    return "unordered_list"
-
-def check_ordered_list(block):
-    block_split = block.split("\n")
-    for i in range(1, len(block_split)):
-        if block_split[i] and not block_split[i].startswith(f"{i+1}. "):
-            return -1
-    return "ordered_list"
-
-def check_header(block):
-    valid_starts = ["###### ", "##### ", "#### ", "### ", "## ", "# "]
-    for start in valid_starts:
-        if block.startswith(start):
-            if bool(block.split(" ", 1)[1].strip()):
-                return "heading"
-    return -1
-
-def check_quote(block):
-    for b in block.split("\n"):
-        if b and b[0:2] != "> ":
-            return -1
-        
-    return "quote"
-
 def markdown_to_html_node(markdown):
     # converts full md doc to single parent HTML Node
-    #
+    # with many child HTMLNode objects
     pass
