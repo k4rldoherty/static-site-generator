@@ -18,16 +18,16 @@ def block_to_block_type(block):
         check = check_header(block)
         if check != -1: return check
     # Code
-    if block[0:3] == "```" and block[-3:] == "```": return "code"
+    if block.startswith("``` ") and block.endswith("```"): return "code"
     # Quote
-    if "> " in block:
+    if block.startswith("> "):
         check = check_quote(block)
         if check != -1: return check
     # Unordered list
-    if "* " in block:
+    if block.startswith("* "):
         check = check_unordered_list("* ", block)
         if check != -1: return check
-    if "- " in block:
+    if block.startswith("- "):
         check = check_unordered_list("- ", block)
         if check != -1: return check
     # ordered list
@@ -38,6 +38,13 @@ def block_to_block_type(block):
     return "paragraph"
 
 def markdown_to_html_node(markdown):
+    # TODO
     # converts full md doc to single parent HTML Node
     # with many child HTMLNode objects
+    # split the markdown into blocks
+    # loop over each block
+    # determine the type of block
+    # based on the block type, create a new HTMLNode with the proper data
+    # assign the proper child HTMLNode objects to the block node
+    # make all the block nodes children under the single parent HTMLNode which should just be a div, and return it
     pass
