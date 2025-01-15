@@ -21,7 +21,7 @@ def check_header(block):
 
 def check_quote(block):
     for b in block.split("\n"):
-        if b and b[0:2] != "> ":
+        if not b or not b.startswith(">"):
             return -1
         
     return "quote"

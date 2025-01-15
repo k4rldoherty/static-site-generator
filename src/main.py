@@ -1,22 +1,10 @@
 from src.textnode import TextNode, TextType
-from src.block import markdown_to_html_node
+from src.block import markdown_to_html_node, block_to_block_type
 
 def main():
-    md = """# Header
+    p = """> quote line 1
+> quote line 2"""
 
-paragraph
-
-- list item 1
-- list item 2
-
-[link](www.google.com)
-
-![alt text](some text)
-
-__italics__
-
-**bold**
-"""
-    print(markdown_to_html_node(md))
+    print(markdown_to_html_node(p))
 
 main()
