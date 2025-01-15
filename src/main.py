@@ -1,8 +1,10 @@
 from src.textnode import TextNode, TextType
-from src.utils import text_to_textnodes
+from src.block import markdown_to_html_node, block_to_block_type
 
 def main():
-    text = "This is **text** with an *italic* word and a `code block` and an ![obi wan image](https://i.imgur.com/fJRm4Vk.jpeg) and a [link](https://boot.dev)"
-    print(text_to_textnodes(text))
+    p = """> quote line 1
+> quote line 2"""
+
+    print(markdown_to_html_node(p))
 
 main()

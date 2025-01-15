@@ -15,6 +15,9 @@ class TextNode:
         self.text = text
         self.text_type = text_type.value
         self.url = url
+    
+    def to_html(self):
+        return self.text
 
     def __eq__(self, other):
         return (
