@@ -1,10 +1,7 @@
-from src.textnode import TextNode, TextType
-from src.block import markdown_to_html_node, block_to_block_type
+from src.utils import clean_public_folder, copy_files
 
 def main():
-    p = """> quote line 1
-> quote line 2"""
-
-    print(markdown_to_html_node(p))
+    clean_public_folder()
+    copy_files("static", "public")
 
 main()
