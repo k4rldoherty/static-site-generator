@@ -111,13 +111,14 @@ def create_quote_node(block):
             result.append(current_group)
         for r in result:
             node.children.append(ParentNode("p", text_to_children(" ".join(r).strip())))
+        
+        return node
 
     else:
         # there is no breaks so it is all one textnode inside the <blockquote>
         refined_line = " ".join(refined_lines).strip()
-        node.children.append(ParentNode("p", text_to_children(refined_line)))
+        return ParentNode("blockquote", text_to_children(refined_line))
 
-    return node
 
 def create_list_node(block, type):
     list_split = block.split("\n")
