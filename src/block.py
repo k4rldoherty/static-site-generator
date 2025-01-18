@@ -97,17 +97,16 @@ def create_quote_node(block):
     node = ParentNode("blockquote", [])
 
     if "" in refined_lines or " " in refined_lines:
-        # there is a paragraph break so every "" is a seperate <p> tag inside the <blockquote>
         result = []
         current_group = []
         for item in refined_lines:
             if item == "" or item == " ":
-                if current_group:  # only append non-empty groups
+                if current_group: 
                     result.append(current_group)
                     current_group = []
             else:
                 current_group.append(item.strip())
-        if current_group:  # don't forget the last group
+        if current_group:
             result.append(current_group)
         for r in result:
             node.children.append(ParentNode("p", text_to_children(" ".join(r).strip())))
@@ -115,7 +114,6 @@ def create_quote_node(block):
         return node
 
     else:
-        # there is no breaks so it is all one textnode inside the <blockquote>
         refined_line = " ".join(refined_lines).strip()
         return ParentNode("blockquote", text_to_children(refined_line))
 

@@ -1,32 +1,41 @@
-# Tolkien Fan Club
+# About Me
 
-**I like Tolkien**. Read my [first post here](/majesty) (sorry the link doesn't work yet)
+## This Project
 
-> All that is gold does not glitter
+Interested in learning about this project? Read more [here](/projects/index.html)
 
-## Reasons I like Tolkien
+## Personal Information
 
-- You can spend years studying the legendarium and still not understand its depths
-- It can be enjoyed by children and adults alike
-- Disney *didn't ruin it*
-- It created an entirely new genre of fantasy
+![Probably a small photo cos i copied it from github](/images/me.jpg)
 
-## My favorite characters (in order)
+- **Name**: Karl Doherty
+- **Age**: 24
+- **Location**: Donegal, Ireland
 
-1. Gandalf
-2. Bilbo
-3. Sam
-4. Glorfindel
-5. Galadriel
-6. Elrond
-7. Thorin
-8. Sauron
-9. Aragorn
+## Profession
 
-Here's what `elflang` looks like (the perfect coding language):
+I’m a **Software Developer** with a passion for building innovative solutions and exploring new technologies. I enjoy solving problems, writing clean code, and continuously improving my skills in software development.
 
-```
-func main(){
-    fmt.Println("Hello, World!")
-}
-```
+## Interests
+
+I have a deep love for everything tech! Some of my favorite activities include:
+
+- Exploring new programming languages and frameworks.
+- Tinkering with hardware and gadgets.
+- Staying updated on the latest trends in the tech industry.
+- Working on personal tech projects and experimenting with cutting-edge tools.
+
+## Goals
+
+I aim to:
+
+- Enhance my expertise in software engineering.
+- Collaborate on exciting and impactful projects.
+- Contribute to open-source software.
+- Stay curious and keep learning about emerging technologies.
+
+## Fun Fact
+
+When I’m not coding, you can find me working out or spending some time with friends and family.
+
+Feel free to reach out if you share similar interests or have an exciting project to collaborate on!

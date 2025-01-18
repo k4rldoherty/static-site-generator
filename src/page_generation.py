@@ -1,4 +1,5 @@
 from src.block import markdown_to_html_node
+import os
 
 def extract_title(markdown):
     md_split = markdown.split("\n")
@@ -29,3 +30,12 @@ def generate_page(from_path, template_path, dest_path):
     md_file.close()
     template_file.close()
     finished_file.close()
+
+def generate_pages_recursive(from_path, template_path, dest_path):
+    for item in os.listdir(from_path):
+        path = os.path.join(from_path, item)
+        if os.path.isfile(path):
+            generate_page(path, template_path, dest_path)
+        if os.path.isdir(path):
+            os.makedirs(os.path.join(dest_path, item), exist_ok=True)
+            generate_pages_recursive(path, template_path, os.path.join(dest_path, item))
