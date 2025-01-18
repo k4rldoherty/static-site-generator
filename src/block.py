@@ -16,20 +16,16 @@ def block_to_block_type(block):
     if block[0] == "#":
         check = check_header(block)
         if check != -1: return check
-    # Code
     if block.startswith("```") and block.endswith("```"): return "code"
-    # Quote
     if block.startswith(">"):
         check = check_quote(block)
         if check != -1: return check
-    # Unordered list
     if block.startswith("* "):
         check = check_unordered_list("* ", block)
         if check != -1: return check
     if block.startswith("- "):
         check = check_unordered_list("- ", block)
         if check != -1: return check
-    # ordered list
     if block.startswith("1. "):
         check = check_ordered_list(block)
         if check != -1: return check
@@ -39,11 +35,8 @@ def block_to_block_type(block):
 def markdown_to_html_node(markdown):
     blocks = markdown_to_blocks(markdown)
     html_node = ParentNode("div", children=[])
-    # loop over each block
     for block in blocks:
-        # determine the type of block
         block_type = block_to_block_type(block)
-        # based on the block type, create a new HTMLNode with the proper data
         if block_type == "heading":
             node = create_header_node(block)
             html_node.children.append(node)
@@ -53,7 +46,6 @@ def markdown_to_html_node(markdown):
             html_node.children.append(node)
         
         elif block_type == "quote":
-            # create_quote_node(block)
             node = create_quote_node(block)
             html_node.children.append(node)
 

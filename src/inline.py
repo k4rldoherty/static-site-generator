@@ -24,14 +24,11 @@ def text_node_to_html_node(text_node):
 def split_nodes_delimiter(old_nodes, delimiter, text_type):
     new_nodes = []
     for old_node in old_nodes:
-        # if the old node is of type text, add it to the new nodes 
         if old_node.text_type != TextType.TEXT.value:
             new_nodes.append(old_node)
             continue
         split_nodes = []
-        # split the old node by the delimiter
         sections = old_node.text.split(delimiter)
-        # print(sections)
         if len(sections) % 2 == 0:
             raise ValueError("Invalid markdown, formatted section not closed")
         for i in range(len(sections)):
@@ -48,25 +45,20 @@ def split_nodes_delimiter(old_nodes, delimiter, text_type):
 def split_nodes_link(old_nodes):
     new_nodes = []
     for old_node in old_nodes:
-        # only TextNodes are processed
         if old_node.text_type != TextType.TEXT.value:
             new_nodes.append(old_node)
             continue
         original_text = old_node.text
-        # returns a list of tuples containing the link and description
         links = extract_markdown_links(original_text)
         if len(links) == 0:
-            # if no links are found, the original node is returned
             new_nodes.append(old_node)
             continue
         for link in links:
             sections = original_text.split(f"[{link[0]}]({link[1]})", 1)
             if len(sections) != 2:
                 raise ValueError("Invalid markdown, link section not closed")
-            # if there is any text before the link, it is added as a text node
             if sections[0] != "":
                 new_nodes.append(TextNode(sections[0], TextType.TEXT))
-            # a new text node for the link
             new_nodes.append(TextNode(link[0], TextType.LINK, link[1]))
             original_text = sections[1]
         if original_text != "":

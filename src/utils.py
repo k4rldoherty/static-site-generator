@@ -3,10 +3,8 @@ import shutil
 
 def clean_public_folder():
     project_root = os.path.abspath(".")
-    # Make sure both the source and destination are present
     if not os.path.exists("public"):
         return ValueError("Path to folder does not exist")
-    # delete all files from destination
     public_dir = os.path.join(project_root, "public")
     ls_dest = os.listdir(public_dir)
     for item in ls_dest:
@@ -31,7 +29,5 @@ def copy_files(source, destination):
             print(f"successfully copied {item}")
         if os.path.isdir(os.path.join(source_dir, item)):
             print(f"{item} is a directory, creating a new directory in destination to hold files . . .")
-            # make a folder to store the 
             os.makedirs(os.path.join(dest_dir, item), exist_ok=True)
-            # recursively call copy_files
             copy_files(os.path.join(source_dir, item), os.path.join(dest_dir, item))
