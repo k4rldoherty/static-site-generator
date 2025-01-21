@@ -112,7 +112,7 @@ multiple lines
 
         # Quotes
         assert markdown_to_html_node("""> quote line 1
-> quote line 2""") == '<div><blockquote><p>quote line 1 quote line 2</p></blockquote></div>'
+> quote line 2""") == '<div><blockquote>quote line 1 quote line 2</blockquote></div>'
     
         assert markdown_to_html_node("""> para 1
 > still para 1
